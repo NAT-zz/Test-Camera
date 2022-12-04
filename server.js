@@ -58,10 +58,10 @@ const port = process.env.PORT || 3000;
 
 const fps = 10;
 
-// const cv = require('opencv4nodejs');
-// const wCap = new cv.VideoCapture(0);
-// wCap.set(cv.CAP_PROP_FRAME_WIDTH, 300);
-// wCap.set(cv.CAP_PROP_FRAME_HEIGHT, 300);
+const cv = require('opencv4nodejs');
+const wCap = new cv.VideoCapture(0);
+wCap.set(cv.CAP_PROP_FRAME_WIDTH, 300);
+wCap.set(cv.CAP_PROP_FRAME_HEIGHT, 300);
 
 
 app.use(cors());
@@ -100,11 +100,11 @@ app.post('/upload', uploadImage.single('file'), (req, res) => {
 const webcam = nodeWebcam.create(opts);
 
 setInterval(async () => {
-    // const frame = wCap.read();
-    // const image = cv.imdecode('.jpg', frame).toString('base64');
+    const frame = wCap.read();
+    const image = cv.imdecode('.jpg', frame).toString('base64');
     // webcam.capture( "test_picture", (err, data) =>{
     // });
-    io.emit('image', null);
+    io.emit('image', image);
 
 }, 1000/fps);
 
