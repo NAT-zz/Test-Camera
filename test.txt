@@ -1,0 +1,12 @@
+https://stackoverflow.com/questions/62234571/client-browser-webcam-streaming-to-node-server-and-back
+
+npm install --global windows-build-tools
+
+  "opencv4nodejs": {
+    "disableAutoBuild": "1",
+    "OPENCV_INCLUDE_DIR": "C:\\opencv\\build\\include",
+    "OPENCV_LIB_DIR": "C:\\opencv\\build\\x64\\vc15\\lib",
+    "OPENCV_BIN_DIR": "C:\\opencv\\build\\x64\\vc14\\bin"
+  }
+npm config set msbuild_path "E:\VS2019\MSBuild\Current\Bin\MSBuild.exe"
+npm config set msvs_version 2019 --global
